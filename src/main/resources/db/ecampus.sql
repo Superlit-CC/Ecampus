@@ -142,12 +142,12 @@ CREATE TABLE `tb_shop`
 -- Records of tb_shop
 -- ----------------------------
 INSERT INTO `tb_shop`
-VALUES (1, '玉湖餐厅', 1,
+VALUES (1, '食堂一楼窗口', 1,
         'https://5b0988e595225.cdn.sohucs.com/images/20181016/de5e8faa01f74ba8b66f86d324c2cc4d.jpeg',
         '紫金港', '玉湖', 120.149192, 30.316078, 20, 0000004215, 0000003035, 37, '8:00-21:00',
         '2022-12-22 18:10:39', '2023-01-13 17:32:19');
 INSERT INTO `tb_shop`
-VALUES (2, '北秀餐厅', 2,
+VALUES (2, '留学生食堂', 2,
         'https://5b0988e595225.cdn.sohucs.com/images/20181016/a2ea3c99bdcb453291c89dd37b361caf.jpeg',
         '紫金港', '西区', 120.151505, 30.333422, 85, 0000002160, 0000001460, 46,
         '8:30-20:00', '2022-12-22 19:00:13', '2023-01-11 16:12:26');
@@ -216,25 +216,13 @@ CREATE TABLE `tb_shop_type`
 -- Records of tb_shop_type
 -- ----------------------------
 INSERT INTO `tb_shop_type`
-VALUES (1, '美食', '/types/ms.png', 1, '2021-12-22 20:17:47', '2021-12-23 11:24:31');
+VALUES (1, '玉湖餐厅', '/types/yuhu.png', 1, '2021-12-22 20:17:47', '2021-12-23 11:24:31');
 INSERT INTO `tb_shop_type`
-VALUES (2, 'KTV', '/types/KTV.png', 2, '2021-12-22 20:18:27', '2021-12-23 11:24:31');
+VALUES (2, '北秀餐厅', '/types/beixiu.png', 2, '2021-12-22 20:18:27', '2021-12-23 11:24:31');
 INSERT INTO `tb_shop_type`
-VALUES (3, '丽人·美发', '/types/lrmf.png', 3, '2021-12-22 20:18:48', '2021-12-23 11:24:31');
+VALUES (3, '大食堂', '/types/da.png', 3, '2021-12-22 20:18:48', '2021-12-23 11:24:31');
 INSERT INTO `tb_shop_type`
-VALUES (4, '健身运动', '/types/jsyd.png', 10, '2021-12-22 20:19:04', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type`
-VALUES (5, '按摩·足疗', '/types/amzl.png', 5, '2021-12-22 20:19:27', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type`
-VALUES (6, '美容SPA', '/types/spa.png', 6, '2021-12-22 20:19:35', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type`
-VALUES (7, '亲子游乐', '/types/qzyl.png', 7, '2021-12-22 20:19:53', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type`
-VALUES (8, '酒吧', '/types/jiuba.png', 8, '2021-12-22 20:20:02', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type`
-VALUES (9, '轰趴馆', '/types/hpg.png', 9, '2021-12-22 20:20:08', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type`
-VALUES (10, '美睫·美甲', '/types/mjmj.png', 4, '2021-12-22 20:21:46', '2021-12-23 11:24:31');
+VALUES (4, '银泉餐厅', '/types/yinquan.png', 10, '2021-12-22 20:19:04', '2021-12-23 11:24:31');
 
 -- ----------------------------
 -- Table structure for tb_sign
