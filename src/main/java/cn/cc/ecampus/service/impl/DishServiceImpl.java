@@ -30,15 +30,15 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements ID
     private StringRedisTemplate stringRedisTemplate;
 
     @Override
-    public Result queryByShopId(Integer current, Long shopId) {
-        List<Dish> list = queryWithMutex(current, shopId);
+    public Result queryByShopId(Long shopId, Integer current) {
+        List<Dish> list = queryWithMutex(shopId, current);
         if (list == null || list.isEmpty()) {
             return Result.fail("菜品不存在！");
         }
         return Result.ok(list);
     }
 
-    private List<Dish> queryWithMutex(Integer current, Long shopId) {
+    private List<Dish> queryWithMutex(Long shopId, Integer current) {
         String key = CACHE_DISH_KEY + shopId;
         // 1、从redis中查询商铺缓存
         String shopJson = stringRedisTemplate.opsForValue().get(key);
@@ -62,10 +62,10 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements ID
             if (!isLock) {
                 // 4.3 失败，则休眠重试
                 Thread.sleep(50);
-                return queryWithMutex(current, shopId);
+                return queryWithMutex(shopId, current);
             }
             // 4.4 成功，根据id查询数据库
-            Page<Dish> page = query().eq("shop_id", shopId).page(new Page<>(current, SystemConstants.MAX_PAGE_SIZE));
+            Page<Dish> page = query().eq("shop_id", shopId).page(new Page<>(current, SystemConstants.DEFAULT_PAGE_SIZE));
             dishList = page.getRecords();
             // 5.不存在，返回错误
             if (dishList == null || dishList.isEmpty()) {

@@ -91,6 +91,11 @@ public class CacheClient {
         return r;
     }
 
+    public <R, ID> R queryListWithMutex(String keyPrefix, String lockKeyPrefix, ID id, Class<R> type, Function<ID, R> dbFallback, Long time, TimeUnit unit) {
+        // TODO 查询List数据类型并缓存
+        return null;
+    }
+
     private boolean tryLock(String key) {
         Boolean flag = stringRedisTemplate.opsForValue().setIfAbsent(key, "1", LOCK_TTL, TimeUnit.SECONDS);
         return BooleanUtil.isTrue(flag);

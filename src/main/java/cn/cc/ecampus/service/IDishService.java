@@ -9,5 +9,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @create 2023/12/14 10:59
  */
 public interface IDishService extends IService<Dish> {
-    Result queryByShopId(Integer current, Long shopId);
+    Result queryByShopId(Long shopId, Integer current);
 }

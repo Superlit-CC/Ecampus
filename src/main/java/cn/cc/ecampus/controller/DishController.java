@@ -22,8 +22,9 @@ public class DishController {
      */
     @GetMapping("/of/shop")
     public Result queryDishByShopId(
-            @RequestParam(value = "current", defaultValue = "1") Integer current,
-            @RequestParam("shop-id") Long shopId) {
-        return dishService.queryByShopId(current, shopId);
+            @RequestParam("shop-id") Long shopId,
+            @RequestParam(value = "current", defaultValue = "1") Integer current
+            ) {
+        return dishService.queryByShopId(shopId, current);
     }
 }
