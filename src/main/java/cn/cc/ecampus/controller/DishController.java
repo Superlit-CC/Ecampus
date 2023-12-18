@@ -3,10 +3,7 @@ package cn.cc.ecampus.controller;
 import cn.cc.ecampus.dto.Result;
 import cn.cc.ecampus.service.IDishService;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author superlit
@@ -23,9 +20,10 @@ public class DishController {
      * @param shopId 店铺窗口id
      * @return 菜品列表
      */
-    @GetMapping("/{shop-id}")
-    public Result queryDishByShopId(@PathVariable("shop-id") Long shopId) {
-        // TODO 根据Shop ID查询菜品
-        return Result.fail("功能尚未完成！");
+    @GetMapping("/of/shop")
+    public Result queryDishByShopId(
+            @RequestParam(value = "current", defaultValue = "1") Integer current,
+            @RequestParam("shop-id") Long shopId) {
+        return dishService.queryByShopId(current, shopId);
     }
 }

@@ -1,5 +1,6 @@
 package cn.cc.ecampus.service;
 
+import cn.cc.ecampus.dto.Result;
 import cn.cc.ecampus.entity.Dish;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -8,4 +9,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @create 2023/12/14 10:59
  */
 public interface IDishService extends IService<Dish> {
+    Result queryByShopId(Integer current, Long shopId);
 }
