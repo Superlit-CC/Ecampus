@@ -36,8 +36,11 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
 
     @Override
     public Result seckillVoucher(Long voucherId) {
-        // 1.查询优惠券
+        // 1.查询优惠券 TODO 做redis缓存
         SeckillVoucher voucher = seckillVoucherService.getById(voucherId);
+        if (voucher == null) {
+            return Result.fail("优惠券不存在！");
+        }
         // 2.判断秒杀是否开始
         if (voucher.getBeginTime().isAfter(LocalDateTime.now())) {
             // 尚未开始
