@@ -1,5 +1,6 @@
 package cn.cc.ecampus.service;
 
+import cn.cc.ecampus.dto.Result;
 import cn.cc.ecampus.entity.VoucherOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -8,4 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @create 2023/12/14 11:01
  */
 public interface IVoucherOrderService extends IService<VoucherOrder> {
+    Result seckillVoucher(Long voucherId);
+
+    Result createVoucherOrder(Long voucherId);
 }
